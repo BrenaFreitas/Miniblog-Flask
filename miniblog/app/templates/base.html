@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Playwrite+AU+VIC+Guides&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+{% block head %} 
+{% endblock %}
+</head>
+<body>
+    <!--
+      <header>
+        <h1>Letter</h1>
+        <nav>
+            <a href="/index">Home</a>
+            <a href="/sobre">Sobre</a>
+            <a href="#">Courses</a>
+            <a href="#">Level</a>
+            <a href="#">Chat</a>
+            <a href="#">Books</a>
+        </nav>
+    </header>
+    -->
+
+    <div class="search">
+        <div class="search-container">
+            <img src="{{ url_for('static', filename='img/search.png') }}" alt="" class="search-icon">
+            <input type="text" placeholder="Pesquisar" class="search-input">
+        </div>
+
+        <div class="search-container-itens">
+
+            <div class="item">
+                <a href="/home">Sobre</a>
+            </div>
+
+            <div class="item">
+                <a href="">Contato</a>
+            </div>
+
+            <div class="item">
+                <a href="/mylibrary">My library</a>
+            </div>
+
+            <div class="item">
+                <img src="{{ url_for('static', filename='img/uil_cart.png') }}" alt="">
+            </div>
+            
+            <div class="item">
+                <a class="button-login" href="/login">Login</a> 
+            </div>
+            
+
+        
+
+        </div>
+
+    
+        
+    </div>
+
+
+    {% block conteudo %}
+
+    {% endblock %}
+
+    <footer>
+        <div class="section-footer">
+            <img src="../static/img/logo.png" alt="logo-library">
+        </div>
+        <div class="section-footer">
+            <div class="footer-item">
+                <h3>Contato</h3>
+                <a href="">FAQs</a>
+                <a href="">Contact</a>
+                <a href="">About Us</a>
+            </div>
+            <div class="footer-item">
+                <h3>Products</h3>
+                <a href="">Texts</a>
+                <a href="">Books</a>
+                <a href="">Autors</a>
+            </div>
+            <div class="footer-item">
+                <h3>Follow Us</h3>
+                <a href="">Instagram</a>
+                <a href="">Facebook</a>
+                <a href="">Twitter</a>
+
+            </div>
+            
+        </div>
+    </footer>
+</body>
+</html>

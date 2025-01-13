@@ -1,0 +1,8 @@
+FLASK_APP = miniblog.py
+FLASK_ENV = development
+DATABASE_USERNAME = root
+DATABASE_PASSWORD = brena1234
+DATABASE_HOST = localhost
+DATABASE_PORT = 5432
+DATABASE_NAME = miniblog
+SECRET_KEY = miniblog123

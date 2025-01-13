@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}"> 
+{% endblock%}
+
+{%block conteudo %}
+
+    <main>
+
+
+        <div class = "presentation">
+            
+                <div class="presentation-item">
+                    <h2>Emma's Bookstore</h2>
+                    
+                </div>  
+                <div class="presentation-item">
+                    <a class="button-shop" href="/shop">Shop Now</a> 
+                </div> 
+
+            </div>
+             
+        </div>
+
+        <div class="section-categories">
+            <h2>CATEGORIES</h2>
+            <div class="section-categories-itens">
+                <div class="category">
+                    <img src="{{ url_for('static', filename='img/books.jpg') }}" alt="category1">
+                    <h3>Books</h3>
+                </div>
+                <div class="category">
+                    <img src="{{ url_for('static', filename='img/books.jpg') }}" alt="category2">
+                    <h3>Technology</h3>
+                </div>
+                <div class="category">
+                    <img src="{{ url_for('static', filename='img/books.jpg') }}" alt="category3">
+                    <h3>Travel</h3>
+                </div>
+                <div class="category">
+                    <img src="{{ url_for('static', filename='img/books.jpg') }}" alt="category4">
+                    <h3>Food</h3>
+                </div>
+                <div class="category">
+                    <img src="{{ url_for('static', filename='img/books.jpg') }}" alt="category5">
+                    <h3>Music</h3>
+                </div>
+                <div class="category">
+                    <img src="{{ url_for('static', filename='img/books.jpg') }}" alt="category6">
+                    <h3>Health</h3>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="section-library">
+            <h2>FAVORITE BOOKS</h2>
+            <div class="section-books">
+                <div class="book">
+                    <img src="{{ url_for('static', filename='img/books.jpg') }}" alt="book1">
+                    <h3 class="card-title">Orgulho e Preconceito</h3>
+                    <p>Jane Austen</p>
+                    <div class="container-price">
+                        <p class="card-price">R$ 29,90</p>
+                        <button class="button-cart">Adicionar</button>
+                    </div>
+                    
+
+                </div>
+                <div class="book">
+                    <img src="{{ url_for('static', filename='img/books.jpg') }}" alt="book2">
+                    <h3 class="card-title">1984</h3>
+                    <p>George Orwell</p>
+                    <div class="container-price">
+                        <p class="card-price">R$ 39,90</p>
+                        <button class="button-cart">Adicionar</button>
+                    </div>
+
+                </div>
+                <div class="book">
+                    <img src="{{ url_for('static', filename='img/books.jpg') }}" alt="book1">
+                    <h3 class="card-title">O Alquimista</h3>
+                    <p>Paulo Coelho</p>
+                    <div class="container-price">
+                        <p class="card-price">R$ 34,90</p>
+                        <button class="button-cart">Adicionar</button>
+                    </div>
+
+                </div>
+                <div class="book">
+                    <img src="{{ url_for('static', filename='img/books.jpg') }}" alt="book2">
+                    <h3 class="card-title">Dom Quixote</h3>
+                    <p>Miguel de Cervantes</p>
+                    <div class="container-price">
+                        <p class="card-price">R$ 49,90</p>
+                        <button class="button-cart">Adicionar</button>
+                    </div>
+
+                </div>
+                <div class="book">
+                    <img src="{{ url_for('static', filename='img/books.jpg') }}" alt="book1">
+                    <h3 class="card-title">O Senhor dos Anéis: A Sociedade do Anel</h3>
+                    <p> J.R.R. Tolkien</p>
+                    <div class="container-price">
+                        <p class="card-price">R$ 64,90</p>
+                        <button class="button-cart">Adicionar</button>
+                    </div>
+
+                </div>
+                <div class="book">
+                    <img src="{{ url_for('static', filename='img/books.jpg') }}" alt="book2">
+                    <h3 class="card-title">Harry Potter e a Pedra Filosofal</h3>
+                    <p>J.K. Rowling</p>
+                    <div class="container-price">
+                        <p class="card-price">R$ 44,90</p>
+                        <button class="button-cart">Adicionar</button>
+
+                    </div>
+                </div>
+    
+                
+                
+            </div>
+        </div>
+        
+
+      
+
+    </main>
+   
+    
+{%endblock%}

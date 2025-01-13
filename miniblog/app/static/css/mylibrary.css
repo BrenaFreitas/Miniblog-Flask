@@ -1,0 +1,85 @@
+main{
+    height: 200vh;
+    font-family: 'Playfair Display', serif;
+
+}
+
+p,h2{
+    font-family: 'Playfair Display', serif;
+}
+
+.section-description{
+    display: flex;
+    flex-direction: column;
+    padding: auto;
+    text-align: center;
+    margin: auto;
+    height: 45vh;
+    width: 80%;
+    border-bottom: black 1px solid ;
+    font-size: 14px;
+    margin-bottom: 100px;
+   
+
+}
+
+.section-description img{
+    width: 10vw;
+    height: 25vh;
+    border-radius: 10px;
+}
+
+.section-perfil{
+    display: flex;
+    flex-direction: row;
+    padding: auto;
+    text-align: center;
+    margin: auto;
+    height: 10vh;
+    width: 80%;
+}
+
+.section-perfil-item {
+    padding: 10px;
+    background-color: #e5d5d7;
+    margin: 20px;
+    width: 20vw;
+    height: 10vh;
+    border-radius: 10px;
+}
+
+.section-books{
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+
+}
+
+.section-books-item img{
+    width: 10vw;
+    height: 25vh;
+    border-radius: 10px;
+    padding: 0.2rem;
+}
+
+.section-books-item {
+    width: 40vw;
+    background-color: #e5d5d7;
+    border-radius: 20px;
+
+}
+
+.section-item {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.book-information{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}

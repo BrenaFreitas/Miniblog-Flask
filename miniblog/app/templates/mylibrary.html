@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mylibrary.css') }}">
+    <script src="{{ url_for('static', filename='js/shop.js') }}" defer></script>
+
+{% endblock%}
+
+{%block conteudo %}
+
+<main>
+
+    <div class="section-description">
+        <div class="section-description-item">
+            <img src="{{ url_for('static', filename='img/books.jpg') }}" alt="category1">
+        </div>
+        <div class="section-description-item">
+            <h2>Username</h2>
+            <p>Location</p>
+            <p>Member since</p>
+            <p>Books read</p>
+            <p>Books in library</p>
+            <p>Books in wishlist</p>
+        </div>
+    </div>
+
+   
+
+    <div class="section-perfil">
+        <div class="section-perfil-item">
+            <p>Lidos</p>
+            <p>9</p>
+        </div>
+        <div class="section-perfil-item">
+            <p>Lendo</p>
+            <p>9</p>
+        </div>
+        <div class="section-perfil-item">
+            <p>Quero ler</p>
+            <p>9</p>
+        </div>
+        <div class="section-perfil-item">
+            <p>Relendo</p>
+            <p>9</p>
+        </div>
+        <div class="section-perfil-item">
+            <p>Abandonei</p>
+            <p>9</p>
+        </div>
+        <div class="section-perfil-item">
+            <p>Resenha</p>
+            <p>9</p>
+        </div>
+
+    </div>
+
+    <div class="section-books">
+        <div class="section-books-item">
+            <div class="section-item">
+                <div class="book-information">
+                    <img src="{{ url_for('static', filename='img/books.jpg') }}" alt="category1">
+                </div>
+                <div class="book-information">
+                    <h3>Book 1</h3>
+                    <p>Author</p>
+                    <p>Genre</p>
+                    <p>Rating</p>
+                    <p>Read</p>
+                    <p>Review</p>
+                </div>
+
+            </div>
+          
+
+        </div>
+        <div class="section-books-item">
+            <div class="section-item">
+                <div class="book-information">
+                    <img src="{{ url_for('static', filename='img/books.jpg') }}" alt="category1">
+                </div>
+                
+                <div class="book-information">
+                    <h3>Book 1</h3>
+                    <p>Author</p>
+                    <p>Genre</p>
+                    <p>Rating</p>
+                    <p>Read</p>
+                    <p>Review</p>
+                </div>
+               
+            </div>
+         
+
+        </div>
+
+    </div>
+
+</main>
+
+{% endblock %}
