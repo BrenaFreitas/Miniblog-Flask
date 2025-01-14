@@ -54,9 +54,10 @@
         </div>
 
        
-        <div class="message">
-            <h1>Usuário ou senha inválida</h1>
-        </div>
+        {% if erro %}
+            <p style="color: red;">{{ erro }}</p>
+        {% endif %}
+
 
 
     </main>
