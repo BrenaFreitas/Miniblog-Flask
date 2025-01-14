@@ -65,5 +65,6 @@ def logout():
 
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
+    # O Render define a variável PORT automaticamente.
+    port = int(os.environ.get('PORT', 5000))  # 5000 é apenas um fallback.
     app.run(host='0.0.0.0', port=port)
