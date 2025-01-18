@@ -4,31 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+
 </head>
 <body>
     <main>
-        <div class="login-item">
-            <form>
-                <h2>Welcome Back</h2>
-                <div class="input-group">
-                    <div class="input-box">
-                        <label for="username">Username</label>
-                        <input id="username" type="text" placeholder="Enter your username">
+        
+        <div class="login-container">
+            <div class="login-item">
+                <form action="/user_register" method="POST">
+                    <h2>Register</h2>
+                    <div class="input-group">
+                        <div class="input-box">
+                            <label for="username">Username</label>
+                            <input id="username" type="text" name="username" placeholder="Enter your username" >
+                        </div>
+                        <div class="input-box">
+                            <label for="email">Email</label>
+                            <input id="email" type="text" name="email" placeholder="Enter your email"  >
+                        </div>
+                        <div class="input-box">
+                            <label for="password">Senha</label>
+                            <input id="password" type="password" name="password" placeholder="Enter your password" >
+                        </div>
+                        <div class="input-box">
+                            <button id="buttonRegister" type="submit" >Register</button>
+                        </div>
                     </div>
-                    <div class="input-box">
-                        <label for="senha">Senha</label>
-                        <input id="password" type="password" placeholder="Enter your password">
-                    </div>
-                    <div class="input-box">
-                        <a href="#">Forgot your password?</a>
-                        <button id="buttonlogin" type="submit" >Login</button>
-                        <a href="#">Create an account</a>
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
-        <div class="login-item">
-            <img src="../static/img/a.png" alt="">
     </main>
     
 </body>

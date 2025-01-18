@@ -12,22 +12,12 @@ USUARIOS = {
 @app.route('/')
 @app.route('/index')
 def index():
-    nome = session.get('username', 'Visitante')
-    return render_template('index.html', nome=nome)
-
-@app.route('/sobre')
-@autenticar_login
-def sobre():
-    return render_template('sobre.html')
-
-@app.route('/home')
-@autenticar_login
-def home():
     return render_template('index.html')
 
-@app.route('/login')
-def login():
-    return render_template('login.html')
+@app.route('/sobre')
+
+def sobre():
+    return render_template('sobre.html')
 
 
 @app.route('/autenticar', methods=['GET', 'POST'])
@@ -46,12 +36,10 @@ def autenticar():
     return render_template('login.html', erro=erro)
 
 @app.route('/shop')
-@autenticar_login
 def shop():
     return render_template('shop.html')
 
 @app.route('/mylibrary')
-@autenticar_login
 def mylibrary():
     return render_template('mylibrary.html')
 
@@ -63,8 +51,6 @@ def logout():
     flash('Você saiu com sucesso!', 'info')
     return redirect(url_for('index'))
 
-
-if __name__ == '__main__':
-    # O Render define a variável PORT automaticamente.
-    port = int(os.environ.get('PORT', 5000))  # 5000 é apenas um fallback.
-    app.run(host='0.0.0.0', port=port)
+@app.route('/register', methods=['GET', 'POST'])
+def register() :
+    return render_template('register.html')

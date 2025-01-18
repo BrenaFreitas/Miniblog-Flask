@@ -1,6 +1,6 @@
-FLASK_APP = miniblog.py
+FLASK_APP = run.py
 FLASK_ENV = development
-DATABASE_USERNAME = root
+DATABASE_USERNAME = postgres
 DATABASE_PASSWORD = brena1234
 DATABASE_HOST = localhost
 DATABASE_PORT = 5432
