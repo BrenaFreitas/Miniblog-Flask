@@ -1,11 +1,12 @@
 main{
-    height: 200vh;
+
+    height: 150vh;
     font-family: 'Playfair Display', serif;
 
 }
 
-p,h2{
-    font-family: 'Playfair Display', serif;
+h3{
+    font-size: 20px;
 }
 
 .section-description{
@@ -21,6 +22,12 @@ p,h2{
     margin-bottom: 100px;
    
 
+}
+
+.section-description-item {
+    margin-top: 2rem;
+    padding: auto;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .section-description img{
@@ -48,38 +55,79 @@ p,h2{
     border-radius: 10px;
 }
 
+.books-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.books-container button {
+
+    margin: 3rem;
+    width: 4vw;
+    height: 5vh;
+    background-color: #e7b896;
+    border: none;
+    border-radius: 10px;
+}
+
+.books-container button:hover {
+    background-color: #000;
+    color: white;
+}
+
 .section-books{
     height: 70vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     margin-top: 3rem;
+    width: 80%;
+    flex-wrap: wrap;
+    margin: auto;
+    padding: 3rem;
 
 }
+
+
+
 
 .section-books-item img{
     width: 10vw;
     height: 25vh;
     border-radius: 10px;
-    padding: 0.2rem;
 }
 
 .section-books-item {
-    width: 40vw;
+    width: 15vw;
     background-color: #e5d5d7;
     border-radius: 20px;
+    height: 50vh;
 
 }
 
 .section-item {
     width: 100%;
-    padding: 10px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    padding: 1rem;
+    text-align: left;
+
+
 }
 
 .book-information{
-    width: 50%;
-    display: flex;
-    flex-direction: column;
+   
+    margin: 0.5rem auto;
+}
+
+.book-information img{
+    width: 13vw;
+    height: 25vh;
+}
+
+.book-information img{
+
+    
+    margin: 0.5rem auto;
 }

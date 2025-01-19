@@ -5,29 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Playwrite+AU+VIC+Guides&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Playwrite+AU+VIC+Guides&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <script src="{{ url_for('static', filename='js/nav.js') }}"></script>
+    <title>LIBRARY</title>
 
 {% block head %} 
 {% endblock %}
 </head>
 <body>
-    <!--
-      <header>
-        <h1>Letter</h1>
-        <nav>
-            <a href="/index">Home</a>
-            <a href="/sobre">Sobre</a>
-            <a href="#">Courses</a>
-            <a href="#">Level</a>
-            <a href="#">Chat</a>
-            <a href="#">Books</a>
-        </nav>
-    </header>
-    -->
+    
+    
+    <button class="collapsible">
+        <img src="../static/img/logo.png" alt="logo-library">
+
+    </button>
+
+
+    <div class="content">
+        <div class="nav-menu">
+            <div class="nav-menu-item">
+                <a href="#" class="nav-button"> 
+                    <img src="../static/img/akar-icons_person.png" alt="">
+                     Account
+                </a>
+            </div>
+            <div class="nav-menu-item">
+                <a href="#" class="nav-button">
+                    <img src="../static/img/notifications.png" alt="">
+                    Notifications
+                </a>
+            </div>
+            <div class="nav-menu-item">
+                <a href="#" class="nav-button">
+                    <img src="../static/img/shop.png" alt="">
+                    Orders
+                </a>
+            </div>
+            <div class="nav-menu-item">
+                <a href="#" class="nav-button">
+                    <img src="../static/img/eva_settings-2-outline.png" alt="">
+                    Settings
+                </a>
+            </div>
+        </div>
+
+        <div class="nav-media">
+            <img src="../static/img/brandico_linkedin-rect.png" alt="">
+            <img src="../static/img/brandico_linkedin-rect.png" alt="">
+            <img src="../static/img/brandico_linkedin-rect.png" alt="">
+        </div>
+
+
+    </div>
 
     <div class="search">
         <div class="search-container">
@@ -42,11 +78,11 @@
             </div>
 
             <div class="item">
-                <a href="">Contato</a>
+                <a href="/library">Library</a>
             </div>
 
             <div class="item">
-                <a href="/mylibrary">My library</a>
+                <a href="/user_library">My library</a>
             </div>
 
             <div class="item">

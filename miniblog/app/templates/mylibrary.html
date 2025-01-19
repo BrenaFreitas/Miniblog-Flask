@@ -12,17 +12,18 @@
 <main>
 
     <div class="section-description">
-        <div class="section-description-item">
-            <img src="{{ url_for('static', filename='img/books.jpg') }}" alt="category1">
-        </div>
-        <div class="section-description-item">
-            <h2>Username</h2>
-            <p>Location</p>
-            <p>Member since</p>
-            <p>Books read</p>
-            <p>Books in library</p>
-            <p>Books in wishlist</p>
-        </div>
+        {% if user %}
+
+            <div class="section-description-item">
+                <img src="{{ url_for('static', filename='img/books.jpg') }}" alt="category1">
+            </div>
+            <div class="section-description-item">
+                
+                <h3>{{ user.username_user }}</h3>
+                <p>{{user.email_user}}</p>
+
+            </div>
+        {% endif %}
     </div>
 
    
@@ -55,47 +56,37 @@
 
     </div>
 
-    <div class="section-books">
-        <div class="section-books-item">
-            <div class="section-item">
-                <div class="book-information">
-                    <img src="{{ url_for('static', filename='img/books.jpg') }}" alt="category1">
-                </div>
-                <div class="book-information">
-                    <h3>Book 1</h3>
-                    <p>Author</p>
-                    <p>Genre</p>
-                    <p>Rating</p>
-                    <p>Read</p>
-                    <p>Review</p>
-                </div>
+    <!--Somente 4 livros do banco de dados em cada página, você pode realizar a consulta com limitação e paginação diretamente no banco de dados utilizando o método limit()-->
+    <div class="books-container">
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
 
+        <div class="section-books">
+            {% for book in books %}
+            <div class="section-books-item">
+                <div class="section-item">
+                    <div class="book-information">
+                        <img src="{{ url_for('static', filename='img/books.jpg') }}" alt="category1">
+                    </div>
+                       
+                    <div class="book-information">
+                        <h3>{{ book.title }}</h3>
+                        <p>Author: {{ book.author }}</p>
+                        <p>Year: {{ book.year }}</p>
+                        <p>Price: {{ book.price }}</p>
+                        <p>Edition: {{ book.edition }}</p>
+                    </div>
+    
+                </div>
+              
             </div>
-          
-
+    
+            {% endfor %}
+    
         </div>
-        <div class="section-books-item">
-            <div class="section-item">
-                <div class="book-information">
-                    <img src="{{ url_for('static', filename='img/books.jpg') }}" alt="category1">
-                </div>
-                
-                <div class="book-information">
-                    <h3>Book 1</h3>
-                    <p>Author</p>
-                    <p>Genre</p>
-                    <p>Rating</p>
-                    <p>Read</p>
-                    <p>Review</p>
-                </div>
-               
-            </div>
-         
-
-        </div>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
 
     </div>
-
+    
 </main>
 
 {% endblock %}

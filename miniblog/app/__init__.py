@@ -16,5 +16,7 @@ migrate = Migrate(app, db)
 
 from app.models import User, Book
 
-from app import user_routes
+from app.routes import user_bp
+
+app.register_blueprint(user_bp)
 

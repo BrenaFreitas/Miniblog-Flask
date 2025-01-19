@@ -6,6 +6,8 @@
     
 }
 
+
+
 header {
     background-color: white;
     color: #dcc7ca;
@@ -83,4 +85,22 @@ footer{
     font-size: 20px;
     margin: 0.8rem;
     cursor: pointer;
+}
+
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    footer {
+        height: auto; /* Deixa a altura do footer adaptável em telas pequenas */
+        flex-direction: column;
+    }
+
+    .footer-item h3 {
+        font-size: 24px; /* Tamanho de fonte ajustado para telas menores */
+    }
+
+    .footer-item a {
+        font-size: 18px;
+    }
 }

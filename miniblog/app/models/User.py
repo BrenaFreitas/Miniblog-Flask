@@ -7,10 +7,10 @@ bcrypt = Bcrypt()
 
 class User(db.Model):
     __tablename__ = 'users'
-    id = db.Column('id_user', db.Integer, primary_key=True, autoincrement=True)
+    id_user = db.Column('id_user', db.Integer, primary_key=True, autoincrement=True)
 
-    username = db.Column('username_user', db.String(100), unique=True, nullable=False)
-    email = db.Column('email_user', db.String(100), unique=True, nullable=False)
+    username_user = db.Column('username_user', db.String(100), unique=True, nullable=False)
+    email_user = db.Column('email_user', db.String(100), unique=True, nullable=False)
     password_hash = db.Column('password_user', db.String(255), nullable=False)  # Aumente para 255
 
     def set_password(self, password):
