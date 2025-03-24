@@ -14,3 +14,4 @@ SQLAlchemy==1.4.54
 SQLAlchemy-Utils==0.41.2
 uvicorn==0.32.0
 flask
+pylint
