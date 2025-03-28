@@ -137,7 +137,7 @@ def book_register():
         db.session.add(new_user_book)
         db.session.commit()
         flash('Livro cadastrado com sucesso!', 'success')
-        print({'message':'Livro cadastrado com sucesso!','status':'success'}), 200
+        return render_template('mylibrary.html')
 
     flash('Erro ao cadastrar livro', 'danger')
     return render_template('library.html')
