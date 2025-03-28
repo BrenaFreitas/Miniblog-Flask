@@ -1,7 +1,7 @@
 from app import app, db
 from flask import render_template, request, flash, redirect, url_for, session
 from flask_bcrypt import Bcrypt
-from app.models import User  # Certifique-se de que o modelo User esteja importado corretamente
+from app.models import User,Book  # Certifique-se de que o modelo User esteja importado corretamente
 
 bcrypt = Bcrypt(app)
 

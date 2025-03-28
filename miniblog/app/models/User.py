@@ -5,6 +5,7 @@ from sqlalchemy import Column, String
 
 bcrypt = Bcrypt()
 
+
 class User(db.Model):
     __tablename__ = 'users'
     id_user = db.Column('id_user', db.Integer, primary_key=True, autoincrement=True)
