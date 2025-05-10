@@ -7,6 +7,10 @@ WORKDIR /app
 # Copia o arquivo de requisitos para instalar dependências
 COPY requirements.txt .
 
+# Instala as dependências do PostgreSQL
+RUN apt-get update && apt-get install -y libpq-dev postgresql-client
+
+
 # Instala as dependências do Python
 RUN pip install --no-cache-dir -r requirements.txt
 
@@ -14,7 +18,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Expõe a porta que o Flask usará
-EXPOSE 5000
+EXPOSE 8000
 
 # Define o comando padrão para rodar a aplicação
 CMD ["flask", "run", "--host=0.0.0.0"]
