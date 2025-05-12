@@ -2,6 +2,7 @@
 
 {% block head %} 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chatbot.css') }}">
 {% endblock%}
 
 {%block conteudo %}
@@ -128,6 +129,90 @@
       
 
     </main>
+
+    <div class="chatbot-widget">
+        <button id="chatbot-toggle">Chat</button>
+        <div class="chatbot-container" id="chatbot-container">
+            <div class="chat-log" id="chatLog">
+                <div class="chatbot-message">Olá! Como posso ajudar?</div>
+            </div>
+            <div class="input-area">
+                <input type="text" id="mensagemUsuario" placeholder="Digite sua mensagem...">
+                <button onclick="enviarMensagem()">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const chatbotToggle = document.getElementById('chatbot-toggle');
+        const chatbotContainer = document.getElementById('chatbot-container');
+        const chatLog = document.getElementById('chatLog');
+        const mensagemInput = document.getElementById('mensagemUsuario');
+
+        chatbotToggle.addEventListener('click', () => {
+            chatbotContainer.classList.toggle('active');
+        });
+
+        function enviarMensagem() {
+            const mensagem = mensagemInput.value.trim();
+
+            if (mensagem) {
+                chatLog.innerHTML += `<div class="user-message">${mensagem}</div>`;
+                mensagemInput.value = '';
+
+                let dataToSend = { mensagem: mensagem };
+                if (mensagem.startsWith('/')) {
+                    dataToSend.comando = mensagem.substring(1); // Envia o comando sem a barra
+                }
+
+                fetch('/enviar_mensagem', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json', // Melhor usar JSON pra mandar mais informações
+                    },
+                    body: JSON.stringify(dataToSend), // Envia os dados como JSON
+                })
+                .then(response => response.json())
+                .then(data => {
+                    chatLog.innerHTML += `<div class="chatbot-message">${data.resposta}</div>`;
+                    chatLog.scrollTop = chatLog.scrollHeight;
+                })
+                .catch(error => {
+                    console.error('Erro ao enviar mensagem:', error);
+                    chatLog.innerHTML += '<div class="chatbot-message error">Erro ao obter resposta.</div>';
+                    chatLog.scrollTop = chatLog.scrollHeight;
+                });
+            }
+        }
+
+        // Enviar mensagem de boas-vindas ao abrir o chatbot
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('/enviar_mensagem', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ mensagem: 'Olá' }), // Envia como JSON também
+            })
+            .then(response => response.json())
+            .then(data => {
+                chatLog.innerHTML += `<div class="chatbot-message">${data.resposta}</div>`;
+                chatLog.scrollTop = chatLog.scrollHeight;
+            })
+            .catch(error => {
+                console.error('Erro ao enviar mensagem de boas-vindas:', error);
+                chatLog.innerHTML += '<div class="chatbot-message error">Erro ao obter resposta de boas-vindas.</div>';
+                chatLog.scrollTop = chatLog.scrollHeight;
+            });
+        });
+
+        // Adiciona evento de tecla "Enter" para enviar mensagem
+        mensagemInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter' && chatbotContainer.classList.contains('active')) {
+                enviarMensagem();
+            }
+        });
+    </script>
    
     
 {%endblock%}

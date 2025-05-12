@@ -4,6 +4,15 @@ from flask_bcrypt import Bcrypt
 from app.models import User,Book  # Certifique-se de que o modelo User esteja importado corretamente
 from app.utils import autenticar_login  # Importa o decorador
 from . import user_bp
+import openai 
+from flask import jsonify
+import dotenv
+import os
+
+dotenv.load_dotenv()
+
+
+openai.api_key  = os.getenv('OPENAI_API_KEY')
 
 bcrypt = Bcrypt(app)
 
@@ -162,4 +171,40 @@ def user_library():
 
     return render_template('mylibrary.html', books=books, user=user)
 
+
+
+@app.route('/enviar_mensagem', methods=['POST'])
+def enviar_mensagem():
+    # Recebe a mensagem do usuário e o comando do chat 
+    data = request.get_json() 
+    mensagem = data.get('mensagem')
+    comando = data.get('comando')
+
+    if comando:
+        if comando == 'menu':
+            resposta = "Nosso menu:\n- Opção 1\n- Opção 2\n- Opção 3"
+        elif comando == 'comprar':
+            resposta = "Ok, o que você gostaria de comprar?"
+        elif comando == 'parcelar':
+            resposta = "Você gostaria de parcelar em quantas vezes? - O máximo é 6x"
+            
+        else:
+            resposta = "Comando desconhecido."
+    elif mensagem:
+        response = openai.chat.completions.create(
+
+            model="gpt-4", 
+            messages=[
+                 {"role": "system", "content": "Você é um assistente que responde em português. "
+                 "Você vai responder de acordo com o contexto do site : Site de divulgação e venda de livros."
+                 "Mantenha o foco no assunto e evite divagações."},
+                 {"role": "user", "content": mensagem}
+            ]
+         )
+    
+        resposta = response.choices[0].message.content
+    else:
+        resposta = "Não entendi a sua mensagem."
+
+    return jsonify({'resposta': resposta})
 
