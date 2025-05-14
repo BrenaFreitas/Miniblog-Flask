@@ -5,7 +5,6 @@ on:
     branches:
       - main
 
-
 jobs:
   build:
 
@@ -18,10 +17,18 @@ jobs:
     - name: Configurar o Python
       uses: actions/setup-python@v4
       with:
-        python-version: "3.11"
+        python-version: "3.10"
 
     - name: Instalar dependências
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+
+    - name: Criar tag com data do deploy (AAAA.MM.DD)
+      run: |
+        DEPLOY_DATE=$(date +%Y.%m.%d)
+        DEPLOY_TIME=$(date +%H%M)
+        TAG_NAME="v${DEPLOY_DATE}.${DEPLOY_TIME}"
+        git tag -a "$TAG_NAME" -m "Deploy automático da versão ${DEPLOY_DATE}.${DEPLOY_TIME}"
+        git push origin "$TAG_NAME"
 
